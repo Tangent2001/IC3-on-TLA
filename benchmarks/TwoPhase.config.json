@@ -1,0 +1,30 @@
+{
+    "relations"  :  [
+        "[rm |-> VARI, type |-> \"Prepared\"] \\in msgs",
+        "[type |-> \"Commit\"] \\in msgs",
+        "[type |-> \"Abort\"] \\in msgs",
+        "rmState[VARI] = \"committed\"",
+        "rmState[VARI] = \"working\"",
+        "rmState[VARI] = \"prepared\"",
+        "rmState[VARI] = \"aborted\"",
+        "tmState = \"init\"",
+        "tmState = \"committed\"",
+        "tmState = \"aborted\"",
+        "VARI \\in tmPrepared"
+    ],
+    "safety"  :  "TCConsistent",
+    "next": "Next",
+    "constants"  :  "ConstInit",
+    "type_ok"  :  "TypeOK",
+    "sort_value" : {
+        "RM": ["R1_OF_RM","R2_OF_RM","R3_OF_RM"]
+    },
+    "const_sort": {
+        "VARI" : "RM",
+        "VARJ" : "RM"
+    },
+    "init": "Init",
+    "init_ivy": [
+        
+    ]
+}

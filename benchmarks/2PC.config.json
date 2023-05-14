@@ -1,0 +1,23 @@
+{
+    "relations"  :  [
+        "VARI \\in vote_yes",
+        "VARI \\in vote_no",
+        "VARI \\in alive",
+        "VARI \\in go_commit",
+        "VARI \\in go_abort",
+        "VARI \\in decide_commit",
+        "VARI \\in decide_abort",
+        "abort_flag"
+    ],
+    "safety"  :  "Safety",
+    "next": "Next",
+    "constants"  :  "ConstInit",
+    "type_ok"  :  "TypeOK",
+    "sort_value" : {
+        "Node": ["n1_OF_NODE","n2_OF_NODE","n3_OF_NODE"]
+    },
+    "const_sort": {
+        "VARI" : "Node"
+    },
+    "init": "Init"
+}

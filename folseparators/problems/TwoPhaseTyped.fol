@@ -1,0 +1,113 @@
+; Signature
+(sort RM)
+(relation msgs_commit)
+(relation msgs_abort)
+(relation msgs_prepared RM)
+(relation rmState_committed RM)
+(relation rmState_aborted RM)
+(relation rmState_working RM)
+(relation rmState_prepared RM)
+(relation tmState_init)
+(relation tmState_committed)
+(relation tmState_aborted)
+(relation tmPrepared RM)
+
+; * --- *   * --- *
+
+
+(model +
+    ((r1 RM) (r2 RM) (r3 RM))
+    (rmState_working r1)
+    (rmState_working r2)
+    (rmState_working r3)
+    (tmState_init)
+)
+
+(model +
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_abort)
+    (rmState_working r1)
+    (rmState_working r2)
+    (rmState_working r3)
+    (tmState_aborted)
+)
+
+(model +
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_abort)
+    (rmState_working r1)
+    (rmState_working r2)
+    (rmState_aborted r3)
+    (tmState_aborted)
+)
+
+(model +
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_abort)
+    (msgs_prepared r2)
+    (rmState_aborted r1)
+    (rmState_prepared r2)
+    (rmState_aborted r3)
+    (tmState_aborted)
+)
+
+(model +
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_abort)
+    (msgs_prepared r2)
+    (rmState_aborted r1)
+    (rmState_aborted r2)
+    (rmState_aborted r3)
+    (tmState_aborted)
+)
+
+(model +
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_commit)
+    (rmState_working r1)
+    (rmState_working r2)
+    (rmState_working r3)
+    (tmPrepared r1)
+    (tmPrepared r2)
+    (tmPrepared r3)
+    (tmState_committed)
+)
+
+(model -
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_commit)
+    (rmState_prepared r1)
+    (rmState_aborted r2)
+    (rmState_prepared r3)
+    (tmPrepared r1)
+    (tmPrepared r2)
+    (tmPrepared r3)
+    (tmState_init)
+)
+
+(model -
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_commit)
+    (rmState_aborted r1)
+    (rmState_working r2)
+    (rmState_working r3)
+    (tmPrepared r1)
+    (tmPrepared r2)
+    (tmPrepared r3)
+    (tmState_aborted)
+)
+
+(model -
+    ((r1 RM) (r2 RM) (r3 RM))
+    (msgs_commit)
+    (msgs_prepared r3)
+    (rmState_aborted r1)
+    (rmState_working r2)
+    (rmState_prepared r3)
+    (tmPrepared r1)
+    (tmPrepared r2)
+    (tmPrepared r3)
+    (tmState_committed)
+)
+
+

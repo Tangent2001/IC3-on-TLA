@@ -1,0 +1,19 @@
+{
+    "relations"  :  [
+        "semaphore[VARS] = TRUE",
+        "VARS \\in clientlocks[VARC]"
+    ],
+    "safety"  :  "P",
+    "next": "Next",
+    "constants"  :  "ConstInit",
+    "type_ok"  :  "TypeOK",
+    "sort_value" : {
+        "Server": ["S1_OF_SERVER","S2_OF_SERVER","S3_OF_SERVER"],
+        "Client": ["C1_OF_CLIENT","C2_OF_CLIENT"]
+    },
+    "const_sort": {
+        "VARS" : "Server",
+        "VARC" : "Client"
+    },
+    "init": "Init"
+}
